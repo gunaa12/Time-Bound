@@ -1,7 +1,8 @@
 // Imports
 import 'package:flutter/material.dart';
 import 'package:time_bound/screens/login_screen.dart';
-import 'package:time_bound/screens/home_screen.dart';
+import 'package:time_bound/screens/home.dart';
+import 'package:time_bound/screens/register_screen.dart';
 
 void main() => runApp(timeBound());
 
@@ -19,7 +20,7 @@ class timeBound extends StatelessWidget {
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
         LoginScreen.id: (context) => LoginScreen(),
-        // RegisterScreen.id: (context) => RegisterScreen(),
+        RegisterScreen.id: (context) => RegisterScreen(),
       },
     );
   }
