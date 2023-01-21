@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:time_bound/constants.dart';
-
+import 'package:time_bound/button.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = "login_screen_id";
@@ -43,10 +43,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     onChanged: (String text) {
                       _email = text;
                     },
-                    // decoration: kInputFieldDecoration.copyWith(
-                    //   hintText: 'Enter e-mail here',
-                    //   hintStyle: TextStyle(color: Colors.white),
-                    // ),
+                    decoration: kInputFieldDecoration.copyWith(
+                      hintText: 'Enter e-mail here',
+                      hintStyle: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
                 Container(
@@ -60,25 +60,25 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Colors.white,
                     ),
                     obscureText: true,
-                    // decoration: kInputFieldDecoration.copyWith(
-                    //   hintText: 'Enter password here',
-                    //   hintStyle: TextStyle(color: Colors.white),
-                    // ),
+                    decoration: kInputFieldDecoration.copyWith(
+                      hintText: 'Enter password here',
+                      hintStyle: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
-                // Hero(
-                //   tag: 'LoginButton',
-                //   child: Button(
-                //     content: Text('Login'),
-                //     color: kLightOrange,
-                //     onPress: () async {
-                //       final user = await _auth.signInWithEmailAndPassword(email: _email, password: _password);
-                //       if (user != null) {
-                //         Navigator.pushNamed(context, LobbyScreen.id);
-                //       }
-                //     },
-                //   ),
-                // ),
+                Hero(
+                  tag: 'LoginButton',
+                  child: Button(
+                    content: Text('Login'),
+                    color: kOrange,
+                    onPress: () async {
+                      // final user = await _auth.signInWithEmailAndPassword(email: _email, password: _password);
+                      // if (user != null) {
+                        // Navigator.pushNamed(context, LobbyScreen.id);
+                      // }
+                    },
+                  ),
+                ),
               ],
             ),
           ),
