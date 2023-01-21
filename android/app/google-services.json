@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "567169691284",
+    "project_id": "time-bound-e0304",
+    "storage_bucket": "time-bound-e0304.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567169691284:android:7e343ecd5b6ea983ce4e81",
+        "android_client_info": {
+          "package_name": "com.timebound.time_bound"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567169691284-qlpip1hnhkai88bhn93s26csp5u1hipv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALt6KAdniBbHmFfLeXjwf4I0cpHBU5QvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567169691284-qlpip1hnhkai88bhn93s26csp5u1hipv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
