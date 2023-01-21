@@ -8,6 +8,7 @@ const Color kTangerine = Color(0xFFf7996e);
 const Color kOrange = Color(0xFFD58936);
 const Color kRed = Color(0xffB34A46);
 const Color kPurple = Color(0xFF712f79);
+const Color kBackgroundColor = Color(0xFF121212);
 
 // Useful
 var icon = Image.asset('assets/images/icon.png');
@@ -18,7 +19,7 @@ const double kDefaultTextFieldWidth = 375.0;
 const kDefaultButtonBorderRadius = 30.0;
 const kVerticalPadding = 16.0;
 
-// Throughout app styles
+// Other Reused Items
 const loginStyle = TextStyle(
     color: Colors.white,
     fontSize: 20,
@@ -29,21 +30,6 @@ const registerStyle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold
 );
-
-// Other Reused Items
-// var kAppBar = AppBar(
-//   backgroundColor: kGreen,
-//   leading: Hero(
-//     tag: 'logo',
-//     child: logo,
-//   ),
-//   title: Text(
-//     'Friends Takeout',
-//     style: TextStyle(
-//       fontFamily: 'Audiowide',
-//     ),
-//   ),
-// );
 
 const kInputFieldDecoration = InputDecoration(
   hintText: 'Enter a value',

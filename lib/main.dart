@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:time_bound/screens/login_screen.dart';
 import 'package:time_bound/screens/home.dart';
 import 'package:time_bound/screens/register_screen.dart';
+import 'package:time_bound/screens/professor_screen.dart';
+import 'package:time_bound/screens/student_screen.dart';
 
 void main() => runApp(timeBound());
 
@@ -21,6 +23,8 @@ class timeBound extends StatelessWidget {
         HomeScreen.id: (context) => HomeScreen(),
         LoginScreen.id: (context) => LoginScreen(),
         RegisterScreen.id: (context) => RegisterScreen(),
+        ProfessorScreen.id: (context) => ProfessorScreen(),
+        StudentScreen.id: (context) => StudentScreen(),
       },
     );
   }

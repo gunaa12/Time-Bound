@@ -1,7 +1,7 @@
 // Imports
 import 'package:flutter/material.dart';
 import 'package:time_bound/constants.dart';
-import 'package:time_bound/button.dart';
+import 'package:time_bound/components/button.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = "login_screen_id";

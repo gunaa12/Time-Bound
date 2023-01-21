@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:time_bound/constants.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:time_bound/firebase_options.dart';
-import 'package:time_bound/button.dart';
+import 'package:time_bound/components/button.dart';
 import 'package:time_bound/screens/login_screen.dart';
 import 'package:time_bound/screens/register_screen.dart';
 

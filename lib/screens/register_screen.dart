@@ -2,7 +2,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:time_bound/constants.dart';
-import 'package:time_bound/button.dart';
+import 'package:time_bound/components/button.dart';
+import 'package:time_bound/screens/professor_screen.dart';
+import 'package:time_bound/screens/student_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   static const String id = "register_screen_id";
@@ -119,7 +121,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           setState(() {
                             _highlight_student = true;
                             _highlight_professor = false;
-
                           });
                         }),
                       SizedBox(width: 30,),
@@ -138,9 +139,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           setState(() {
                             _highlight_student = false;
                             _highlight_professor = true;
-
                           });
-                        }),
+                        }
+                      ),
                     ],
                   ),
                 ),
@@ -153,6 +154,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       color: kOrange,
                       onPress: () async {
+                        if (_highlight_student) {
+                          Navigator.pushNamed(context, StudentScreen.id);
+                        }
+                        else if (_highlight_professor) {
+                          Navigator.pushNamed(context, ProfessorScreen.id);
+                        }
                         // try {
                         //   await _auth.createUserWithEmailAndPassword(
                         //       email: _email, password: _password);
