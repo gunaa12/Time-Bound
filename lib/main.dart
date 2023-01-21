@@ -1,10 +1,12 @@
 // Imports
 import 'package:flutter/material.dart';
+import 'package:time_bound/screens/join_course_screen.dart';
 import 'package:time_bound/screens/login_screen.dart';
 import 'package:time_bound/screens/home.dart';
 import 'package:time_bound/screens/register_screen.dart';
 import 'package:time_bound/screens/professor_screen.dart';
 import 'package:time_bound/screens/student_screen.dart';
+import 'package:time_bound/screens/create_course_screen.dart';
 
 void main() => runApp(timeBound());
 
@@ -25,6 +27,8 @@ class timeBound extends StatelessWidget {
         RegisterScreen.id: (context) => RegisterScreen(),
         ProfessorScreen.id: (context) => ProfessorScreen(),
         StudentScreen.id: (context) => StudentScreen(),
+        CreateCourseScreen.id: (context) => CreateCourseScreen(),
+        JoinCourseScreen.id: (context) => JoinCourseScreen(),
       },
     );
   }

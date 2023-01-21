@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:time_bound/components/header.dart';
 import 'package:time_bound/components/button.dart';
 import 'package:time_bound/components/display_card.dart';
+import 'package:time_bound/screens/create_course_screen.dart';
 
 class ProfessorScreen extends StatefulWidget {
   static const String id = 'professor_screen_id';
@@ -27,7 +28,11 @@ class _ProfessorScreenState extends State<ProfessorScreen> {
               child: Column(
                 children: [
                   Container(
-                    child: DisplayCard(),
+                    child: DisplayCard(
+                      color: kTangerine,
+                      course_name: "CS 381",
+                      deadlines: Container(),
+                    ),
                   )
                 ],
               )
@@ -36,12 +41,12 @@ class _ProfessorScreenState extends State<ProfessorScreen> {
               child: Button(
                 content: Text(
                   "Create new course",
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
+                  style: generalHeaderStyle,
                 ),
-                onPress: () {  },
-                color: Colors.white,
+                onPress: () {
+                  Navigator.pushNamed(context, CreateCourseScreen.id);
+                },
+                color: kEmerald,
               ),
             )
           ],

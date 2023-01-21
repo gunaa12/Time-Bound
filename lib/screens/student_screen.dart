@@ -4,6 +4,7 @@ import 'package:time_bound/components/header.dart';
 import 'package:time_bound/components/button.dart';
 import 'package:time_bound/components/display_card.dart';
 import 'package:time_bound/constants.dart';
+import 'package:time_bound/screens/join_course_screen.dart';
 
 class StudentScreen extends StatefulWidget {
   static const String id = 'student_screen_id';
@@ -26,7 +27,11 @@ class _StudentScreenState extends State<StudentScreen> {
                     child: Column(
                       children: [
                         Container(
-                          child: DisplayCard(),
+                          child: DisplayCard(
+                            color: kTangerine,
+                            course_name: 'CS 381',
+                            deadlines: Container(),
+                          ),
                         )
                       ],
                     )
@@ -34,13 +39,15 @@ class _StudentScreenState extends State<StudentScreen> {
                 Center(
                   child: Button(
                     content: Text(
-                      "Create new course",
+                      "Join Course",
                       style: TextStyle(
                         fontSize: 20,
                       ),
                     ),
-                    onPress: () {  },
-                    color: Colors.white,
+                    onPress: () {
+                      Navigator.pushNamed(context, JoinCourseScreen.id);
+                    },
+                    color: kEmerald,
                   ),
                 )
               ],

@@ -31,6 +31,10 @@ const registerStyle = TextStyle(
     fontWeight: FontWeight.bold
 );
 
+const generalHeaderStyle = TextStyle(
+  fontSize: 20,
+);
+
 const kInputFieldDecoration = InputDecoration(
   hintText: 'Enter a value',
   contentPadding:
