@@ -8,6 +8,8 @@ import 'package:time_bound/components/deadline_card.dart';
 import 'package:time_bound/components/indicator.dart';
 
 class CustomTimeline extends StatefulWidget {
+  const CustomTimeline({super.key});
+
   @override
   State<StatefulWidget> createState() => _CustomTimeline();
 }
@@ -17,16 +19,32 @@ class _CustomTimeline extends State<CustomTimeline> {
 
   @override
   void initState() {
+    List<String> dbEntries = ["CS 352", "CS 362", "CS 405", "CS 468"];
     super.initState();
     events = [
       generateEvent("CS 381"),
       generateEvent("CS 354"),
     ];
+
+    for(int i = 0; i <dbEntries.length; i++) {
+      events.add(generateEvent(dbEntries.elementAt(i)));
+    }
+
+
+    // int dbSize = 10;
+    // String dbEntry = "DATABASE ENTRY";
+    // for(int i = 0; i < dbSize; i++) {
+    //   events.add(generateEvent(dbEntry));
+    // }
+
   }
 
   @override
   Widget build(BuildContext context) {
+    //retrieve data from database
+
     return _buildTimeline();
+
   }
 
   TimelineEventDisplay generateEvent(String course_name) {
