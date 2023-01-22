@@ -35,6 +35,12 @@ const generalHeaderStyle = TextStyle(
   fontSize: 20,
 );
 
+const generalHeaderStyle2 = TextStyle(
+  fontSize: 25,
+  fontWeight: FontWeight.w600
+);
+
+
 const kInputFieldDecoration = InputDecoration(
   hintText: 'Enter a value',
   contentPadding:

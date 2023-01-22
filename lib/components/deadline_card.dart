@@ -8,8 +8,9 @@ class DeadlineCard extends StatefulWidget {
   final String date;
   final Color color;
   final Widget deadlines;
+  final String assignment_name;
 
-  DeadlineCard({required this.course_name, required this.date, required this.color, required this.deadlines});
+  DeadlineCard({required this.assignment_name, required this.course_name, required this.date, required this.color, required this.deadlines});
 
   @override
   State<DeadlineCard> createState() => _DeadlineCardState();
@@ -28,16 +29,26 @@ class _DeadlineCardState extends State<DeadlineCard> {
         color: widget.color,
         child: SizedBox(
           width: 350,
-          height: 100,
           child: Column(
             children: [
-              Text(
-                this.widget.course_name,
-                style: generalHeaderStyle,
+              SizedBox(height: 5,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    this.widget.course_name,
+                    style: generalHeaderStyle2,
+                  ),
+                  Text(
+                    this.widget.assignment_name,
+                    style: generalHeaderStyle2,
+                  ),
+                ],
               ),
+              SizedBox(height: 5,),
               Text(
                 this.widget.date,
-                style: generalHeaderStyle,
+                style: generalHeaderStyle2,
               ),
               widget.deadlines,
               Slider(

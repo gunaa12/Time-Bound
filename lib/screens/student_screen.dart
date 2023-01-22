@@ -105,6 +105,7 @@ class _StudentScreenState extends State<StudentScreen> {
         deadlines: Container(),
         color: kOrange,
         date: DateFormat('MM/dd, HH:mm').format(deadline['due_time'].toDate()),
+        assignment_name: deadline['assignment_name'],
       ),
       indicatorSize: 56,
       indicator: Indicator(
