@@ -51,3 +51,5 @@ const kInputFieldDecoration = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
 );
+
+const String baseUrl = "http://127.0.0.1:5000/api/v1.0";
