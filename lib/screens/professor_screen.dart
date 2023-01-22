@@ -1,5 +1,6 @@
 // Imports
 import 'package:flutter/material.dart';
+import 'package:time_bound/components/deadline_card.dart';
 import 'package:time_bound/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:time_bound/components/header.dart';
@@ -27,13 +28,16 @@ class _ProfessorScreenState extends State<ProfessorScreen> {
             Expanded(
               child: Column(
                 children: [
-                  Container(
-                    child: DisplayCard(
-                      color: kTangerine,
-                      course_name: "CS 381",
-                      deadlines: Container(),
-                    ),
-                  )
+                  DisplayCard(
+                    color: kTangerine,
+                    course_name: "CS 381",
+                    deadlines: Container(),
+                    width: 350,
+                  ),
+                  // DeadlineCard(
+                  //     date: "Jan 22",
+                  //     color: kRed,
+                  //     deadlines: Container())
                 ],
               )
             ),

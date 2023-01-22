@@ -22,6 +22,7 @@ dependencies:
   firebase_auth: ^3.3.4
   http: ^0.13.5
   flutter_timeline: ^0.3.0
+  date_field: ^3.0.0
 
 dependency_overrides:
   firebase_core_platform_interface: 4.5.1

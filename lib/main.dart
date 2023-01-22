@@ -16,6 +16,12 @@ class timeBound extends StatelessWidget {
     return MaterialApp(
       title: 'Time Bound',
       theme: ThemeData(
+        textTheme: TextTheme(
+          bodyText2: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+          ),
+        ),
         primarySwatch: Colors.blue,
         backgroundColor: Colors.black12,
       ),
