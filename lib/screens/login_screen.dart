@@ -1,7 +1,9 @@
 // Imports
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:time_bound/constants.dart';
 import 'package:time_bound/components/button.dart';
+import 'package:time_bound/screens/student_screen.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -12,13 +14,13 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  // late FirebaseAuth _auth;
+  late FirebaseAuth _auth;
   late String _email;
   late String _password;
 
   @override
   void initState() {
-    // _auth = FirebaseAuth.instance;
+    _auth = FirebaseAuth.instance;
   }
 
   @override
@@ -75,10 +77,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   color: kTangerine,
                   onPress: () async {
-                    // final user = await _auth.signInWithEmailAndPassword(email: _email, password: _password);
-                    // if (user != null) {
-                      // Navigator.pushNamed(context, LobbyScreen.id);
-                    // }
+                    final user = await _auth.signInWithEmailAndPassword(email: _email, password: _password);
+                    if (user != null) {
+                      Navigator.pushNamed(context, StudentScreen.id);
+                    }
                   },
                 ),
               ),

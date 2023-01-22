@@ -1,10 +1,12 @@
 // Imports
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:time_bound/constants.dart';
 import 'package:time_bound/components/button.dart';
 import 'package:time_bound/screens/professor_screen.dart';
 import 'package:time_bound/screens/student_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class RegisterScreen extends StatefulWidget {
   static const String id = "register_screen_id";
@@ -15,7 +17,8 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   // Attributes
-  //late FirebaseAuth _auth;
+  late FirebaseAuth _auth;
+  late FirebaseFirestore _db;
   late String _email;
   late String _password;
   late String _reenter_password;
@@ -26,12 +29,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool _highlight_student = false;
   bool _highlight_professor = false;
 
-  /*
   @override
   void initState() {
     _auth = FirebaseAuth.instance;
+    _db = FirebaseFirestore.instance;
   }
-  */
 
   @override
   Widget build(BuildContext context) {
@@ -148,27 +150,45 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Hero(
                   tag: 'RegisterButton',
                   child: Button(
-                      content: Text(
-                          'Register',
-                          style: registerStyle,
-                      ),
-                      color: kOrange,
-                      onPress: () async {
-                        if (_highlight_student) {
+                    content: Text(
+                        'Register',
+                        style: registerStyle,
+                    ),
+                    color: kOrange,
+                    onPress: () async {
+                      if (_password != _reenter_password) {
+                        return;
+                      }
+
+                      if (_highlight_student) {
+                        try {
+                          await _auth.createUserWithEmailAndPassword(
+                              email: _email, password: _password);
+                          _db.collection('users').doc(_email).set({
+                            'student': true,
+                            'courses': [],
+                          });
                           Navigator.pushNamed(context, StudentScreen.id);
                         }
-                        else if (_highlight_professor) {
+                        catch (e) {
+                          print(e);
+                        }
+                      }
+                      else if (_highlight_professor) {
+                        try {
+                          await _auth.createUserWithEmailAndPassword(
+                              email: _email, password: _password);
+                          _db.collection('users').doc(_email).set({
+                            'student': false,
+                            'courses': [],
+                          });
                           Navigator.pushNamed(context, ProfessorScreen.id);
                         }
-                        // try {
-                        //   await _auth.createUserWithEmailAndPassword(
-                        //       email: _email, password: _password);
-                        //   Navigator.pushNamed(context, LobbyScreen.id);
-                        // }
-                        // catch (e) {
-                        //   print(e);
-                        // }
+                        catch (e) {
+                          print(e);
+                        }
                       }
+                    }
                   ),
                 ),
               ],

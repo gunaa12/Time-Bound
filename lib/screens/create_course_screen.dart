@@ -102,7 +102,9 @@ class _CreateCourseScreenState extends State<CreateCourseScreen> {
             ),
             Button(
               onPress: () {
+                if (_assignment_name_set && _due_time_set) {
 
+                }
               },
               content: Text(
                 "Create Course!",

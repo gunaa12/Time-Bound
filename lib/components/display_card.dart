@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:time_bound/constants.dart';
 import 'package:time_bound/components/button.dart';
-import 'package:time_bound/screens/create_course_screen.dart';
+import 'package:time_bound/screens/assignment_screen.dart';
 
 class DisplayCard extends StatelessWidget {
   // Attributes
@@ -41,7 +41,7 @@ class DisplayCard extends StatelessWidget {
                       Icons.edit,
                     ),
                     onPress: () {
-                      Navigator.pushNamed(context, CreateCourseScreen.id);
+                      Navigator.pushNamed(context, AssignmentScreen.id);
                     },
                     color: kRed,
                     width: 20,
