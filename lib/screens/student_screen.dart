@@ -1,9 +1,9 @@
 // Imports
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_timeline/event_item.dart';
+import 'package:intl/intl.dart';
 import 'package:time_bound/components/header.dart';
 import 'package:time_bound/components/button.dart';
 import 'package:time_bound/components/timeline.dart';
@@ -91,15 +91,20 @@ class _StudentScreenState extends State<StudentScreen> {
     print(deadline_events);
 
     timeline = CustomTimeline(events: deadline_events);
+
+    setState(() {});
   }
 
   TimelineEventDisplay generateEvent(var deadline) {
+    var millis = 978296400000;
+    var dt = DateTime.fromMillisecondsSinceEpoch(millis);
+    var format = DateFormat('mm/dd, HH:mm').format(dt);
     return TimelineEventDisplay(
       child: DeadlineCard(
         course_name: deadline['course_name'],
         deadlines: Container(),
         color: kOrange,
-        date: deadline['due_date'].toString(),
+        date: DateFormat('MM/dd, HH:mm').format(deadline['due_time'].toDate()),
       ),
       indicatorSize: 56,
       indicator: Indicator(
