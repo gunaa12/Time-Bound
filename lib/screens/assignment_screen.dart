@@ -1,23 +1,24 @@
 // Imports
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:time_bound/components/header.dart';
 import 'package:time_bound/components/button.dart';
 import 'package:time_bound/constants.dart';
 import 'package:date_field/date_field.dart';
 
-class AssignmentScreen extends StatefulWidget {
-  static const String id = 'create_course_screen_id';
+class AssignmentScreen extends StatelessWidget {
+  static const String id = 'assignment_screen_id';
 
-  @override
-  State<AssignmentScreen> createState() => _AssignmentScreen();
-}
-
-class _AssignmentScreen extends State<AssignmentScreen> {
+  late FirebaseFirestore _db = FirebaseFirestore.instance;
+  late FirebaseAuth _auth = FirebaseAuth.instance;
   bool _assignment_name_set = false;
   bool _due_time_set = false;
-
   late String _assignment_name;
   late DateTime _due_time;
+  final String course_name;
+
+  AssignmentScreen({required this.course_name});
 
   @override
   Widget build(BuildContext context) {
@@ -103,8 +104,11 @@ class _AssignmentScreen extends State<AssignmentScreen> {
             Button(
               onPress: () {
                 if (_assignment_name_set && _due_time_set) {
-
+                  _db.collection('courses').doc(course_name).update({
+                    'deadlines': FieldValue.arrayUnion([{'assignment_name': this._assignment_name, 'due_time': this._due_time}])
+                  });
                 }
+                Navigator.pop(context);
               },
               content: Text(
                 "Create Assignment!",

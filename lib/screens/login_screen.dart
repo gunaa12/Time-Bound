@@ -1,8 +1,11 @@
 // Imports
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:time_bound/constants.dart';
 import 'package:time_bound/components/button.dart';
+import 'package:time_bound/screens/professor_screen.dart';
 import 'package:time_bound/screens/student_screen.dart';
 
 
@@ -17,10 +20,12 @@ class _LoginScreenState extends State<LoginScreen> {
   late FirebaseAuth _auth;
   late String _email;
   late String _password;
+  late FirebaseFirestore _db;
 
   @override
   void initState() {
     _auth = FirebaseAuth.instance;
+    _db = FirebaseFirestore.instance;
   }
 
   @override
@@ -78,8 +83,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: kTangerine,
                   onPress: () async {
                     final user = await _auth.signInWithEmailAndPassword(email: _email, password: _password);
-                    if (user != null) {
+                    if (user == null) {
+                      return;
+                    }
+
+                    final reference = await _db.collection('users').doc(_email).get();
+                    final is_student = reference.data()!['student'];
+
+                    if (is_student) {
                       Navigator.pushNamed(context, StudentScreen.id);
+                    }
+                    else {
+                      Navigator.pushNamed(context, ProfessorScreen.id);
                     }
                   },
                 ),

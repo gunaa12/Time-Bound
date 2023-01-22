@@ -41,7 +41,12 @@ class DisplayCard extends StatelessWidget {
                       Icons.edit,
                     ),
                     onPress: () {
-                      Navigator.pushNamed(context, AssignmentScreen.id);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AssignmentScreen(course_name: this.course_name)
+                          )
+                      );
                     },
                     color: kRed,
                     width: 20,
