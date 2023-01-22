@@ -4,7 +4,7 @@ import 'package:flutter_timeline/indicator_position.dart';
 import 'package:flutter_timeline/timeline_theme.dart';
 import 'package:flutter_timeline/timeline_theme_data.dart';
 import 'package:time_bound/constants.dart';
-import 'package:time_bound/components/display_card.dart';
+import 'package:time_bound/components/deadline_card.dart';
 import 'package:time_bound/components/indicator.dart';
 
 class CustomTimeline extends StatefulWidget {
@@ -31,10 +31,11 @@ class _CustomTimeline extends State<CustomTimeline> {
 
   TimelineEventDisplay generateEvent(String course_name) {
     return TimelineEventDisplay(
-      child: DisplayCard(
+      child: DeadlineCard(
         course_name: course_name,
         deadlines: Container(),
         color: kOrange,
+        date: "Jan 22",
       ),
       indicatorSize: 56,
       indicator: Indicator(
