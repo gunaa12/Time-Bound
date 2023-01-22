@@ -43,8 +43,8 @@ class _DeadlineCardState extends State<DeadlineCard> {
               Slider(
                 value: progress,
                 max: 100,
-                divisions: 20,
-                label: "Progress",
+                divisions: 10,
+                label: progress.toString(),
                 onChanged: (double value) {
                   setState(() {
                     progress = value;

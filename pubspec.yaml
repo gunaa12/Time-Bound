@@ -20,6 +20,7 @@ dependencies:
 
   firebase_core: ^1.10.6
   firebase_auth: ^3.3.4
+  http: ^0.13.5
   flutter_timeline: ^0.3.0
 
 dependency_overrides:
